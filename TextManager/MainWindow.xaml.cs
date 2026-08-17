@@ -32,6 +32,25 @@ public partial class MainWindow : Window
     if (TextList.SelectedItem is string selectedText) Items.Remove(selectedText);
   }
 
+  private void UpdateButton_Click(object? _, RoutedEventArgs e)
+  {
+    _ = e;
+    if (TextList.SelectedIndex < 0) return;
+
+    string text = TextEntry.Text.Trim();
+    if (string.IsNullOrEmpty(text)) return;
+
+    Items[TextList.SelectedIndex] = text;
+    TextEntry.Clear();
+    TextEntry.Focus();
+  }
+
+  private void TextList_SelectionChanged(object? _, System.Windows.Controls.SelectionChangedEventArgs e)
+  {
+    _ = e;
+    if (TextList.SelectedItem is string selectedText) TextEntry.Text = selectedText;
+  }
+
   private void AddText()
   {
     string text = TextEntry.Text.Trim();
