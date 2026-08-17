@@ -13,6 +13,7 @@
       <ColumnDefinition Width="*" />
       <ColumnDefinition Width="Auto" />
       <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="Auto" />
     </Grid.ColumnDefinitions>
 
     <TextBox Name="TextEntry"
@@ -25,6 +26,13 @@
             Click="AddButton_Click"
             Content="Add" />
     <Button Grid.Column="2"
+            Margin="0,0,8,12"
+            Padding="8,4"
+            FontFamily="Segoe MDL2 Assets"
+            ToolTip="Update selected item"
+            Click="UpdateButton_Click"
+            Content="&#xE70F;" />
+    <Button Grid.Column="3"
             Margin="0,0,0,12"
             Padding="8,4"
             FontFamily="Segoe MDL2 Assets"
@@ -32,8 +40,9 @@
             Click="DeleteButton_Click"
             Content="&#xE74D;" />
     <ListBox Grid.Row="1"
-             Grid.ColumnSpan="3"
+             Grid.ColumnSpan="4"
              Name="TextList"
-             ItemsSource="{Binding Items}" />
+             ItemsSource="{Binding Items}"
+             SelectionChanged="TextList_SelectionChanged" />
   </Grid>
 </Window>
