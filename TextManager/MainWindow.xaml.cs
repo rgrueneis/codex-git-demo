@@ -26,6 +26,12 @@ public partial class MainWindow : Window
     if (e.Key == Key.Enter) AddText();
   }
 
+  private void DeleteButton_Click(object? _, RoutedEventArgs e)
+  {
+    _ = e;
+    if (TextList.SelectedItem is string selectedText) Items.Remove(selectedText);
+  }
+
   private void AddText()
   {
     string text = TextEntry.Text.Trim();
